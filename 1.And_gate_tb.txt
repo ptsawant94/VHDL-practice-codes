@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity and_or_top_tb is
+end;
+
+architecture bench of and_or_top_tb is
+
+  component and_or_top
+      Port ( INA1 : in  STD_LOGIC;
+             INA2 : in  STD_LOGIC;
+             OA   : out STD_LOGIC);
+  end component;
+
+  signal INA1: STD_LOGIC;
+  signal INA2: STD_LOGIC;
+  signal OA: STD_LOGIC;
+
+begin
+
+  uut: and_or_top port map ( INA1 => INA1,
+                             INA2 => INA2,
+                             OA   => OA );
+
+  stimulus: process
+  begin
+  
+    -- Put initialisation code here
+
+
+    -- Put test bench stimulus code here
+
+    wait;
+  end process;
+
+
+end;
+  
