@@ -1,0 +1,46 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity xor_top_tb is
+end;
+
+architecture bench of xor_top_tb is
+
+  component xor_top
+      Port ( A1 : in  STD_LOGIC;
+             A2 : in  STD_LOGIC;
+             X1 : out  STD_LOGIC);
+  end component;
+
+  signal A1: STD_LOGIC;
+  signal A2: STD_LOGIC;
+  signal X1: STD_LOGIC;
+
+begin
+
+  uut: xor_top port map ( A1 => A1,
+                          A2 => A2,
+                          X1 => X1 );
+
+  stimulus: process
+  begin
+  
+    A1 <= '0';
+    A2 <= '0';
+    wait for 50 ns;
+    A1 <= '0';
+    A2 <= '1';
+    wait for 50 ns;
+    A1 <= '1';
+    A2 <= '0';
+    wait for 50 ns; 
+    A1 <= '1';
+    A2 <= '1';
+    
+
+    wait;
+  end process;
+
+
+end;
