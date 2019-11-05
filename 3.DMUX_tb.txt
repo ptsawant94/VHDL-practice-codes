@@ -1,0 +1,55 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity demux_1to4_tb is
+end;
+
+architecture bench of demux_1to4_tb is
+
+  component demux_1to4
+   port(
+   F : in STD_LOGIC;
+   S0,S1: in STD_LOGIC;
+   A,B,C,D: out STD_LOGIC
+   );
+  end component;
+
+  signal F: STD_LOGIC;
+  signal S0,S1: STD_LOGIC;
+  signal A,B,C,D: STD_LOGIC ;
+
+begin
+
+  uut: demux_1to4 port map ( F  => F,
+                             S0 => S0,
+                             S1 => S1,
+                             A  => A,
+                             B  => B,
+                             C  => C,
+                             D => D );
+
+  stimulus: process
+  begin
+  
+    F <= '1';
+    wait for 50 ns;
+    S0 <= '0';
+    S1 <= '0';
+    wait for 50 ns;
+   
+    S0 <= '0';
+    S1 <= '1';
+    wait for 50 ns;
+    
+    S0 <= '1';
+    S1 <= '0';
+   wait for 50 ns;
+    S0 <= '1';
+    S1 <= '1';
+
+    wait;
+  end process;
+
+
+end;
