@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity and_gate_tb is
+end;
+
+architecture bench of and_gate_tb is
+
+  component and_gate
+  port(
+    a: in std_logic_vector(15 downto 0);
+    b: in std_logic_vector(15 downto 0);
+    q: out std_logic_vector(15 downto 0));
+  end component;
+
+  signal a: std_logic_vector(15 downto 0);
+  signal b: std_logic_vector(15 downto 0);
+  signal q: std_logic_vector(15 downto 0);
+
+begin
+
+  uut: and_gate port map ( a => a,
+                           b => b,
+                           q => q );
+
+  stimulus: process
+  begin
+  
+    -- Put initialisation code here
+
+
+    -- Put test bench stimulus code here
+
+    wait;
+  end process;
+
+
+end;

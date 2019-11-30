@@ -1,0 +1,15 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity and_gate is
+port(
+  a: in std_logic_vector(15 downto 0);
+  b: in std_logic_vector(15 downto 0);
+  q: out std_logic_vector(15 downto 0));
+end and_gate;
+
+architecture rtl of and_gate is
+begin
+  q <= a and b;
+end rtl;
