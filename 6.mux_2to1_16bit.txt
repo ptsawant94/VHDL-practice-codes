@@ -1,0 +1,22 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+entity mux16 is
+    port (a, b : in  std_logic_vector(15 downto 0);
+          sel  : in  std_logic;
+          cout : out std_logic_vector(15 downto 0));
+  end mux16;
+
+architecture beh of mux16 is
+
+begin
+process(a,b,sel)
+if(sel <= '0') then
+cout <= a ;
+else 
+cout <= b;
+end process;
+end;

@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.Std_logic_1164.all;
+use IEEE.Numeric_Std.all;
+
+entity mux161_tb is
+end;
+
+architecture bench of mux161_tb is
+
+  component mux161
+      Port ( x : in std_logic_vector(15 downto 0);
+             s : in std_logic_vector(3 downto 0);
+             y : out std_logic);
+  end component;
+
+  signal x: std_logic_vector(15 downto 0);
+  signal s: std_logic_vector(3 downto 0);
+  signal y: std_logic;
+
+begin
+
+  uut: mux161 port map ( x => x,
+                         s => s,
+                         y => y );
+
+  stimulus: process
+  begin
+  x(0) <= '1';
+  x(1) <= '0';
+    s <= "0000";
+   wait for 50 ns;
+   s <= "0001";
+    
+
+    wait;
+  end process;
+
+
+end;
