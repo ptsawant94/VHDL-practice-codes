@@ -1,0 +1,40 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+
+entity demux4way is
+    Port ( a,b,c,d : out std_logic_vector(15 downto 0);
+           sel : in std_logic_vector(1 downto 0);
+           in1 : in std_logic_vector(15 downto 0));
+end demux4way;
+
+architecture demux of demux4way is
+begin
+process(in1,sel)
+begin
+if(sel="00")then
+a<=in1;
+b<="0000000000000000";
+c<="0000000000000000";
+d<="0000000000000000";
+
+elsif(sel="01")then
+a<="0000000000000000";
+b<=in1;
+c<="0000000000000000";
+d<="0000000000000000";
+
+elsif(sel="10")then
+a<="0000000000000000";
+b<="0000000000000000";
+c<=in1;
+d<="0000000000000000";
+
+else
+a<="0000000000000000";
+b<="0000000000000000";
+c<="0000000000000000";
+d<=in1;
+end if;
+end process;
+end demux;
